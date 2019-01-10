@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/btn_ordina"
+        android:title="Ordina"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_sort_white_24dp">
+    </item>
+
+    <item
+        android:id="@+id/prova"
+        android:title="Opzioni"
+        android:orderInCategory="101"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_more_vert_black_24dp">
+
+        <menu>
+            <item android:id="@+id/action_settings"
+                android:icon="@drawable/ic_settings_black_24dp"
+                app:showAsAction="ifRoom"
+                android:title="Impostazioni" />
+
+            <item android:id="@+id/action_help"
+                android:icon="@drawable/ic_help_black_24dp"
+                app:showAsAction="ifRoom"
+                android:title="Aiuto" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sartore.matteo.skatingscore.SetScoresActivity"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:fitsSystemWindows="true"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ScrollView
+        android:id="@+id/setscores_scrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="76dp">
+
+            <TextView
+                android:id="@+id/setscores_lblath"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/str_athlete"
+                android:textSize="50sp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/setscores_lbl1"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/str_tecnicScore"
+                android:layout_below="@id/setscores_lblath"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/setscores_A1"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl1"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_A2" />
+
+            <EditText
+                android:id="@+id/setscores_A2"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl1"
+                android:layout_toEndOf="@id/setscores_A1"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_A3"/>
+
+            <EditText
+                android:id="@+id/setscores_A3"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl1"
+                android:layout_toEndOf="@id/setscores_A2"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_A4"/>
+
+            <EditText
+                android:id="@+id/setscores_A4"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl1"
+                android:layout_toEndOf="@id/setscores_A3"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_A5"/>
+
+            <EditText
+                android:id="@+id/setscores_A5"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl1"
+                android:layout_toEndOf="@id/setscores_A4"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_B1"/>
+
+            <TextView
+                android:id="@+id/setscores_lbl2"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="@string/str_artisticScore"
+                android:layout_below="@id/setscores_A1"
+                android:textSize="30sp"
+                android:paddingTop="16dp"/>
+
+            <EditText
+                android:id="@+id/setscores_B1"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl2"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_B2"/>
+
+            <EditText
+                android:id="@+id/setscores_B2"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl2"
+                android:layout_toEndOf="@id/setscores_B1"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_B3"/>
+
+            <EditText
+                android:id="@+id/setscores_B3"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl2"
+                android:layout_toEndOf="@id/setscores_B2"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_B4"/>
+
+            <EditText
+                android:id="@+id/setscores_B4"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl2"
+                android:layout_toEndOf="@id/setscores_B3"
+                android:padding="16dp"
+                android:inputType="number"
+                android:nextFocusDown="@+id/setscores_B5"/>
+
+            <EditText
+                android:id="@+id/setscores_B5"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/setscores_lbl2"
+                android:layout_toEndOf="@id/setscores_B4"
+                android:padding="16dp"
+                android:inputType="number"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/str_scoreFormatTutorial"
+                android:layout_below="@id/setscores_B5"
+                android:layout_marginTop="10dp"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/setscores_fab"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:backgroundTint="#4CAF50"
+        app:srcCompat="@drawable/ic_check_black_24dp"
+        android:layout_marginBottom="16dp"/>
+
+</RelativeLayout>

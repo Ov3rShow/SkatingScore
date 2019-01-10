@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Impostazioni"
+        android:textSize="50sp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"/>
+
+    <Switch
+        android:id="@+id/Switch_NightMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings_title"
+        android:layout_marginTop="16dp"
+        android:text="@string/Settings_WantNightMode"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Le impostazioni sono in fase di sviluppo, pertanto per qualche tempo esse saranno disabilitate o parzialmente utilizzabili fino a quando non funzionerà tutto alla perfezione! Grazie per la tua pazienza :)"
+        android:layout_below="@+id/Switch_NightMode"
+        android:layout_marginTop="16dp"/>
+
+</RelativeLayout>

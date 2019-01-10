@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">SkatingScore</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_app_tour">AppTourActivity</string>
+
+    <!--Activity nuovo concorrente-->
+    <string name="str_newGroup">Nuovo gruppo</string>
+    <string name="str_insertGroupInfo">Inserisci qui sotto i dati del gruppo</string>
+    <string name="str_society">Società</string>
+    <string name="str_exhibitionTitle">Titolo dell\'esibizione</string>
+    <string name="str_entryNo">Numero di entrata in pista</string>
+    <string name="str_newCompetitor">Aggiungi un concorrente!</string>
+    <string name="str_editCompetitor">Modifica gruppo</string>
+    <string name="str_competitorAdded">Concorrente aggiunto</string>
+    <string name="str_insertCompetitorName">Inserisci un nome per il gruppo</string>
+
+    <!--Activity nuova gara-->
+    <string name="str_newCompetition">Nuova gara</string>
+    <string name="str_insertCompetitionInfo">Inserisci i dati della gara</string>
+    <string name="str_competitionTitle">Titolo</string>
+    <string name="str_competitionPlace">Luogo</string>
+    <string name="str_3judges">3 giudici</string>
+    <string name="str_5judges">5 giudici</string>
+    <string name="str_noCompetitionSelected">Nessuna data selezionata</string>
+    <string name="str_pickADate">Seleziona una data</string>
+    <string name="str_competitionSaved">Competizione salvata</string>
+    <string name="str_competitionNotSaved">Errore, competizione non salvata</string>
+    <string name="str_insertRequiredCompetitionFields">Inserisci il titolo e il numero di giudici per la competizione</string>
+
+    <!--Activity impostazione punteggi-->
+    <string name="str_athlete">Atleta</string>
+    <string name="str_tecnicScore">Contenuto tecnico</string>
+    <string name="str_artisticScore">Contenuto artistico</string>
+    <string name="str_scoreFormatTutorial">I punteggi vanno espressi senza punti decimali.\nAd esempio:\n• 8.1 = 81\n• 7.0 = 70\n• 10.0 = 100</string>
+    <string name="str_scoresSaved">Punteggi salvati</string>
+    <string name="str_scoresNotSaved">Impossibile salvare i punteggi, probabilmente qualche dato non è stato inserito correttamente&#8230;</string>
+    <string name="str_invalidScore">Il punteggio inserito non è valido\nInserisci un punteggio da 2 a 10</string>
+
+    <!--Fragment gare-->
+    <string name="str_scoreCompetitionsFragmentHint">Non ci sono gare&#8230;\nAggiungine subito una!</string>
+    <string name="str_competitionSelected">Gara selezionata</string>
+    <string name="str_RemoveCompetition">Vuoi rimuovere questo evento dalle gare?</string>
+    <string name="str_CompetitionRemoved">Gara rimossa!</string>
+
+    <!--Fragment concorrenti-->
+    <string name="str_fromThisCompetition"> dalla competizione?</string>
+    <string name="str_groupRemoved">Gruppo rimosso!</string>
+    <string name="str_groupError">Errore gruppi</string>
+
+    <!-- Generiche -->
+    <string name="str_skip">Salta</string>
+    <string name="str_understood">Capito</string>
+    <string name="str_doYouWantToRemove">Vuoi rimuovere </string>
+    <string name="str_selectACompetition">Seleziona una gara!</string>
+    <string name="str_Judge">Giudice</string>
+    <string name="str_OopsAnErrorOccurred">Oops! Si è verificato un errore</string>
+    <string name="str_insertACompetitor">Aggiungi un concorrente!</string>
+    <string name="str_scoresMissing">Punteggi non ancora assegnati</string>
+
+    <!-- Activity principale-->
+    <string name="str_chooseSortingRule">Seleziona l\'ordinamento</string>
+    <string name="str_ByName">Per nome</string>
+    <string name="str_ByDate">Per data</string>
+    <string name="str_ByPlace">Per luogo</string>
+    <string name="str_BySociety">Per società</string>
+    <string name="str_ByTitle">Per titolo</string>
+    <string name="str_ByCompetitionOrder">Per ordine di entrata</string>
+    <string name="str_titleHome">SkatingScore - Home</string>
+    <string name="str_titleGroups">SkatingScore - Gruppi</string>
+    <string name="str_titleScores">SkatingScore - Punteggi</string>
+    <string name="str_titleResults">SkatingScore - Classifica</string>
+    <string name="str_Ranking">Classifica</string>
+
+    <!--Guida applicazione-->
+    <string name="AppTourString1_Title">Questa è la schermata principale</string>
+    <string name="AppTourString1_Descr">Qui puoi vedere le gare precedentemente salvate, puoi inoltre aggiungere una nuova gara premendo sul pulsante + in basso a destra!</string>
+    <string name="AppTourString2_Title">Qui puoi aggiungere una nuova gara</string>
+    <string name="AppTourString2_Descr">In questa schermata devi inserire le informazioni riguardanti la gara che desideri salvare, come titolo, data, luogo e così via. Una volta compilati i campi richiesti, tocca il pulsante verde.</string>
+    <string name="AppTourString3_Title">La gara è stata creata!</string>
+    <string name="AppTourString3_Descr">Dopo aver creato la gara devi selezionarla toccandola, essa quindi diventerà verde.</string>
+    <string name="AppTourString4_Title">Puoi quindi iniziare ad aggiungere i concorrenti</string>
+    <string name="AppTourString4_Descr">Nella scheda Concorrenti devi aggiungere i concorrenti che parteciperanno alla competizione. Una volta inseriti i partecipanti essi verranno visualizzati qui!</string>
+    <string name="AppTourString5_Title">Inserisci i dettagli dei concorrenti</string>
+    <string name="AppTourString5_Descr">Per ogni concorrente puoi inserire varie informazioni, compila i campi richiesti e quando hai finito tocca il pulsante verde.</string>
+    <string name="AppTourString6_Title">Ora passiamo ai punteggi</string>
+    <string name="AppTourString6_Descr">La scheda Punteggi ti consente di visualizzare e modificare i punteggi di ogni concorrente. Basta toccare un partecipante per inziare a scrivere, semplice no?</string>
+    <string name="AppTourString7_Title">Inserisci i giudizi</string>
+    <string name="AppTourString7_Descr">Ora puoi inserire i punteggi per il concorrente selezionato, scrivi pure i valori senza virgole o punti per fare più in fretta. Ci penserà SkatingScore a fare i calcoli in modo corretto. Anche qui, quando hai finito devi toccare il pulsante verde.</string>
+    <string name="AppTourString8_Title">Ed ecco la classifica!</string>
+    <string name="AppTourString8_Descr">Nella scheda Risultati puoi osservare la classifica. Essa viene automaticamente ricalcolata quando vengono modificati i punteggi, quindi è sempre aggiornata e precisa. Wow!</string>
+
+    <string name ="Settings_WantNightMode">Usa tema scuro</string>
+</resources>
