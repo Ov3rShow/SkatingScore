@@ -20,7 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         NightModeSwitch = findViewById(R.id.Switch_NightMode);
 
-        //NightModeSwitch.setEnabled(false);
+        NightModeSwitch.setEnabled(false);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         LoadPreferences();
