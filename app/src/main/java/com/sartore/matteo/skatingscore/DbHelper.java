@@ -169,7 +169,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 values = new ContentValues();
                 values.put("Nome", name);
                 values.put("Societa", society);
-                values.put("Titolo", title);
+                //values.put("Titolo", title); OLD 02/02/2019
                 db.insert("Atleti", null, values);
                 query = "SELECT idA FROM Atleti WHERE Nome = ?";
                 Cursor cursor = db.rawQuery(query, new String[] {name});
@@ -182,6 +182,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 values.put("idC", idC);
                 values.put("idA", tempidA);
                 values.put("Ordine", order);
+                values.put("Titolo", title); //NEW 02/02/2019
                 db.insert("Partecipa", null, values);
             }
             else
@@ -189,7 +190,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 values = new ContentValues();
                 values.put("Nome", name);
                 values.put("Societa", society);
-                values.put("Titolo", title);
+                //values.put("Titolo", title); //NEW 02/02/2019
                 db.update("Atleti", values, "idA="+idA, null);
 
                 query = "SELECT * FROM Partecipa WHERE idA='"+idA+"' AND idC='"+idC+"'";
@@ -200,6 +201,7 @@ public class DbHelper extends SQLiteOpenHelper {
                     values.put("idC", idC);
                     values.put("idA", idA);
                     values.put("Ordine", order);
+                    values.put("Titolo", title); //NEW 02/02/2019
                     db.update("Partecipa", values, "idA="+idA+" AND idC="+idC, null);
                 }
                 else
@@ -208,6 +210,7 @@ public class DbHelper extends SQLiteOpenHelper {
                     values.put("idC", idC);
                     values.put("idA", idA);
                     values.put("Ordine", order);
+                    values.put("Titolo", title); //NEW 02/02/2019
                     db.insert("Partecipa", null, values);
                 }
                 cursor3.close();
@@ -278,7 +281,8 @@ public class DbHelper extends SQLiteOpenHelper {
         AthleteClass athlete;
         try
         {
-            query = "SELECT Nome, Societa, Ordine, Titolo, idC, Atleti.idA FROM Atleti INNER JOIN Partecipa ON Atleti.idA = Partecipa.idA WHERE Partecipa.idC='"+idC+"'";
+            //query = "SELECT Nome, Societa, Ordine, Titolo, idC, Atleti.idA FROM Atleti INNER JOIN Partecipa ON Atleti.idA = Partecipa.idA WHERE Partecipa.idC='"+idC+"'";
+            query = "SELECT Nome, Societa, Ordine, Partecipa.Titolo, idC, Atleti.idA FROM Atleti INNER JOIN Partecipa ON Atleti.idA = Partecipa.idA WHERE Partecipa.idC='"+idC+"'"; //NEW 02/02/2019
             Cursor cursor = db.rawQuery(query, null);
             while(cursor.moveToNext())
             {
@@ -349,5 +353,41 @@ public class DbHelper extends SQLiteOpenHelper {
             result = false;
         }
         return result;
+    }
+
+    void fixDatabase()
+    {
+        String colonnaRicercata = "Titolo";
+        boolean colonnaTrovata = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+        query = "PRAGMA table_info(Partecipa);";
+        Cursor cursor = db.rawQuery(query, null);
+        while(cursor.moveToNext())
+        {
+            if(cursor.getString(1).equals(colonnaRicercata))
+                colonnaTrovata = true;
+        }
+
+        cursor.close();
+
+        if(!colonnaTrovata) {
+            db.execSQL("ALTER TABLE Partecipa ADD COLUMN Titolo TEXT");
+
+            query = "select idA, Titolo From Atleti";
+            cursor = db.rawQuery(query, null);
+            while(cursor.moveToNext())
+            {
+                if(!cursor.getString(cursor.getColumnIndex("Titolo")).equals(""))
+                {
+                    ContentValues values = new ContentValues();
+                    values.put("Titolo", cursor.getString(cursor.getColumnIndex("Titolo")));
+                    db.update("Partecipa", values, "idA=" + cursor.getInt(cursor.getColumnIndex("idA")), null);
+                }
+            }
+
+            ContentValues values = new ContentValues();
+            values.put("Titolo", "");
+            db.update("Atleti", values, null, null);
+        }
     }
 }

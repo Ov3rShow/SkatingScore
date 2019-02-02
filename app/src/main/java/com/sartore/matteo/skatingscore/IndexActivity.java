@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -153,6 +154,12 @@ public class IndexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
+
+        //showAlertDialog();
+
+        //NEW 02-02-2019 FIX DB
+        DbHelper dbHelper = new DbHelper(this);
+        dbHelper.fixDatabase();
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         if(preferences.getBoolean("NightMode", false))
@@ -370,5 +377,32 @@ public class IndexActivity extends AppCompatActivity {
             recreate();
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    void showAlertDialog()
+    {
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(IndexActivity.this);
+
+        builder.setTitle("Oops..")
+                .setMessage("Ci dispiace molto, ma l'applicazione è in manutenzione.\nÈ stato identificato un problema che impedisce la corretta memorizzazione delle gare.\nPer evitare di perdere i dati dalle gare già salvate, l'applicazione sarà disattivata per qualche giorno.\nPotrai comunque salvare le gare di questi giorni successivamente.\nIl problema verrà risolto al più presto. :(")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialogInterface) {
+                        finish();
+                    }
+                })
+                .show();
     }
 }
