@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.sartore.matteo.skatingscore.NewCompetitionActivity"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:focusable="true"
@@ -19,82 +17,118 @@
         android:id="@+id/newcomp_scrollView"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="76dp">
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/newcomp_lbltitle"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="@string/str_newCompetition"
-                android:textSize="50sp"
-                android:layout_marginTop="20dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/newcomp_txtview1"
-                android:textSize="20sp"
+            <RelativeLayout
+                android:id="@+id/newcomp_headerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/str_insertCompetitionInfo"
-                android:layout_below="@+id/newcomp_lbltitle"
-                android:layout_marginTop="20dp"/>
+                android:background="@color/colorPrimary">
 
-            <EditText
-                android:id="@+id/newcomp_edittxt1"
+                <TextView
+                    android:id="@+id/newcomp_lbltitle"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="@string/str_newCompetition"
+                    android:textSize="50sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/colorBackground"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/newcomp_txtview1"
-                android:hint="@string/str_competitionTitle"
-                android:inputType="textCapWords"/>
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
 
-            <EditText
-                android:id="@+id/newcomp_edittxt2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/newcomp_edittxt1"
-                android:hint="@string/str_competitionPlace"
-                android:inputType="textCapWords"/>
+                <TextView
+                    android:id="@+id/newcomp_txtview1"
+                    android:textSize="20sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_insertCompetitionInfo"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"/>
 
-            <RadioGroup
-                android:id="@+id/newcomp_radiogroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/newcomp_edittxt2"
-                android:layout_alignParentStart="true"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/newcomp_radio1"
+                <EditText
+                    android:id="@+id/newcomp_edittxt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/str_competitionTitle"
+                    android:inputType="textCapWords"/>
+
+                <EditText
+                    android:id="@+id/newcomp_edittxt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/str_competitionPlace"
+                    android:inputType="textCapWords"/>
+
+                <TextView
+                    android:id="@+id/newcomp_judgesNoTxtView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_3judges"/>
-                <RadioButton
-                    android:id="@+id/newcomp_radio2"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/str_judgesNoTitle"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <RadioGroup
+                    android:id="@+id/newcomp_radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/newcomp_radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_3judges"/>
+                    <RadioButton
+                        android:id="@+id/newcomp_radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_5judges"
+                        android:layout_marginStart="16dp"/>
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/newcomp_competitionDateTxtView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/str_5judges"
-                    android:layout_marginStart="16dp"/>
-            </RadioGroup>
+                    android:layout_marginTop="16dp"
+                    android:text="@string/str_competitioNdateTitle"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/newcomp_txtview2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_noCompetitionSelected"
-                android:textSize="20sp"
-                android:layout_below="@id/newcomp_radiogroup"
-                android:paddingTop="16dp"/>
+                <TextView
+                    android:id="@+id/newcomp_txtview2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_noCompetitionSelected"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp"/>
 
-            <Button
-                android:id="@+id/newcomp_btn2"
+                <Button
+                    android:id="@+id/newcomp_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_pickADate"
+                    android:layout_marginTop="8dp"/>
+
+            </LinearLayout>
+
+            <View
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_pickADate"
-                android:layout_below="@id/newcomp_txtview2"
-                android:layout_marginTop="8dp"/>
-        </RelativeLayout>
+                android:layout_height="88dp"/>
+
+        </LinearLayout>
 
     </ScrollView>
 
@@ -102,10 +136,11 @@
         android:id="@+id/newcomp_btn1"
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         app:backgroundTint="#4CAF50"
         app:srcCompat="@drawable/ic_check_black_24dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

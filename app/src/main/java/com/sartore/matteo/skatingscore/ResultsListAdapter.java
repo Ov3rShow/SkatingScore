@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -35,23 +36,47 @@ public class ResultsListAdapter extends ArrayAdapter<RankClass>
             RankClass threeStrings = getItem(position);
 
             if (threeStrings != null) {
-                TextView nametxtview = view.findViewById(R.id.resultlist_nametxtview);
-                //TextView placetxtview = view.findViewById(R.id.resultlist_place);
-                TextView infotxtview = view.findViewById(R.id.resultlist_info);
+                TextView nameTxtView = view.findViewById(R.id.resultlist_nametxtview);
+                TextView infoTxtView = view.findViewById(R.id.resultlist_info);
+                ImageView placementImgView = view.findViewById(R.id.resultlist_PlacementIcon);
+                TextView placementTxtView = view.findViewById(R.id.resultlist_PlacementTextView);
 
-                if (nametxtview != null) {
-                    String str = String.valueOf(position+1) + " - " + threeStrings.getName().substring(0,1).toUpperCase()+threeStrings.getName().substring(1);
-                    nametxtview.setText(str);
+
+                if (nameTxtView != null) {
+                    String str = threeStrings.getName().substring(0,1).toUpperCase()+threeStrings.getName().substring(1);
+                    nameTxtView.setText(str);
                 }
 
-                /*if (placetxtview != null) {
-                    /tring placetxtiew = "Vitt. maggiori: " + String.valueOf(threeStrings.getMajorityDecisions());
-                    placetxtview.setText(placetxtiew);
-                }*/
-
-                if(infotxtview != null)
+                if(infoTxtView != null)
                 {
-                    infotxtview.setText(threeStrings.getTitolo() + " - " + threeStrings.getSocieta());
+                    infoTxtView.setText(threeStrings.getTitolo().concat(" - ").concat(threeStrings.getSocieta()));
+                }
+
+                if(placementImgView != null)
+                {
+                    switch (position)
+                    {
+                        case 0:
+                        {
+                            placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.best));
+                            break;
+                        }
+                        case 1:
+                        {
+                            placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.second));
+                            break;
+                        }
+                        case 2:
+                        {
+                            placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.third));
+                            break;
+                        }
+                        default:
+                        {
+                            placementTxtView.setText(String.valueOf(position + 1));
+                            break;
+                        }
+                    }
                 }
             }
 

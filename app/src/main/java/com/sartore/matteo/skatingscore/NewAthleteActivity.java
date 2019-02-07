@@ -23,6 +23,8 @@ public class NewAthleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_athlete);
 
+        getSupportActionBar().setElevation(0);
+
         fab = findViewById(R.id.newath_btn1);
         edittxtname = findViewById(R.id.newath_edittxt1);
         edittxtsociety = findViewById(R.id.newath_edittxt2);

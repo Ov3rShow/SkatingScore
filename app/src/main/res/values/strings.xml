@@ -31,6 +31,8 @@
     <string name="str_competitionSaved">Competizione salvata</string>
     <string name="str_competitionNotSaved">Errore, competizione non salvata</string>
     <string name="str_insertRequiredCompetitionFields">Inserisci il titolo e il numero di giudici per la competizione</string>
+    <string name="str_judgesNoTitle">Numero di giudici</string>
+    <string name="str_competitioNdateTitle">Data di svolgimento</string>
 
     <!--Activity impostazione punteggi-->
     <string name="str_athlete">Atleta</string>

@@ -26,8 +26,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import static android.R.attr.startYear;
 
@@ -46,6 +48,8 @@ public class NewCompetitionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_competition);
+
+        getSupportActionBar().setElevation(0);
 
         txttitle = findViewById(R.id.newcomp_edittxt1);
         txtplace = findViewById(R.id.newcomp_edittxt2);
@@ -71,7 +75,7 @@ public class NewCompetitionActivity extends AppCompatActivity {
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(year, monthOfYear, dayOfMonth);
                         Date date = new Date();
-                        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+                        DateFormat dateFormat = new SimpleDateFormat("EEE, d MMM yyyy", Locale.ITALY);
                         txtdate.setText(dateFormat.format(newDate.getTime()));
                     }
 

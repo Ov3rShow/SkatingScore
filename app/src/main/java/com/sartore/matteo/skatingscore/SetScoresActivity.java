@@ -23,6 +23,8 @@ public class SetScoresActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_scores);
 
+        getSupportActionBar().setElevation(0);
+
         fab = findViewById(R.id.setscores_fab);
         nameath = findViewById(R.id.setscores_lblath);
         A1 = findViewById(R.id.setscores_A1);
