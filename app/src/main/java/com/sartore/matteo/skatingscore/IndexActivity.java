@@ -18,6 +18,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.app.Fragment;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 public class IndexActivity extends AppCompatActivity {
 
@@ -27,7 +28,7 @@ public class IndexActivity extends AppCompatActivity {
     public static ArrayAdapter<String> sortingOptions;
     BottomNavigationView navigation;
     public static int currentShownFragment;
-    public static int selectedCompetitionOrder = -1, selectedAthletesOrder = -1, selectedScoresOrder = -1, selectedResultsOrder = -1;
+    public static int selectedCompetitionOrder = -1, selectedAthletesOrder = -1, selectedScoresOrder = -1, selectedResultsOrder = 0;
     MenuItem sortBtn;
     SharedPreferences preferences;
     MenuItem btn_settings, btn_help;
@@ -37,8 +38,6 @@ public class IndexActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.app_bar, menu);
-
-        this.setTitle("SkatingScore - Home");
 
         sortBtn = menu.findItem(R.id.btn_ordina);
 
@@ -77,38 +76,19 @@ public class IndexActivity extends AppCompatActivity {
             case R.id.btn_ordina:
             {
                 AlertDialog.Builder builder = new AlertDialog.Builder(IndexActivity.this);
-                builder.setTitle(getString(R.string.str_chooseSortingRule)).setAdapter(sortingOptions, new DialogInterface.OnClickListener() {
+                /*builder.setTitle(getString(R.string.str_chooseSortingRule)).setAdapter(sortingOptions, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //String strName = sortingOptions.getItem(which);
                         selectedCompetitionOrder = which;
-
-                        /*Toast.makeText(getApplicationContext(), String.valueOf(which), Toast.LENGTH_SHORT).show();
-                        if (currentShownFragment == 0)
-                        {
-                            //Toast.makeText(getApplicationContext(), String.valueOf(which), Toast.LENGTH_SHORT).show();
-                            ((CompetitionsFragment)fragment).orderList(which);
-                        }
-                        else if (currentShownFragment == 1)
-                            selectedAthletesOrder = which;
-                        else if (currentShownFragment == 2)
-                            selectedScoresOrder = which;
-                        else if (currentShownFragment == 3)
-                            selectedResultsOrder = which;*/
                     }
-                });
+                });*/
+
+                builder.setTitle(getString(R.string.str_chooseSortingRule)).setAdapter(sortingOptions, null);
 
                 //Se il fragment visualizzato è quello delle gare
                 if(currentShownFragment == 0)
                 {
-                    /*builder.setSingleChoiceItems(sortingOptions, selectedCompetitionOrder,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface arg0, int arg1) {
-                                    ((CompetitionsFragment)fragment).orderList(arg1);
-                                    selectedCompetitionOrder = arg1;
-                                }
-                            });*/
+                    //NON IMPLEMENTATO
 
                 }
                 else if (currentShownFragment == 1)
@@ -127,7 +107,9 @@ public class IndexActivity extends AppCompatActivity {
                     builder.setSingleChoiceItems(sortingOptions, selectedScoresOrder,
                             new DialogInterface.OnClickListener() {
                                 @Override
-                                public void onClick(DialogInterface arg0, int arg1) {   }
+                                public void onClick(DialogInterface arg0, int arg1) {
+                                    //NON IMPLEMENTATO
+                                }
                             });
                 }
                 else if (currentShownFragment == 3)
@@ -156,6 +138,8 @@ public class IndexActivity extends AppCompatActivity {
         setContentView(R.layout.activity_index);
 
         //showAlertDialog();
+
+        //this.setTitle("SkatingScore - Home");
 
         //NEW 02-02-2019 FIX DB
         DbHelper dbHelper = new DbHelper(this);
@@ -280,7 +264,7 @@ public class IndexActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         if(number == 0)
         {
-            this.setTitle(getString(R.string.title_home));
+            this.setTitle(getString(R.string.str_titleHome));
             fragment = new CompetitionsFragment();
             ft.replace(R.id.container, fragment, "fragment_tag_fragment0");
             ft.commit();
@@ -335,7 +319,7 @@ public class IndexActivity extends AppCompatActivity {
 
     public void ChangeSortOptions(int number)
     {
-        sortingOptions = new ArrayAdapter<String>(this, android.R.layout.select_dialog_singlechoice);
+        sortingOptions = new ArrayAdapter<>(this, android.R.layout.select_dialog_singlechoice);
         sortingOptions.clear();
 
         if(number == 0)
@@ -361,12 +345,11 @@ public class IndexActivity extends AppCompatActivity {
         else if (number == 3)
         {
             sortingOptions.add(getString(R.string.str_Ranking));
-            sortingOptions.add(getString(R.string.str_Judge) + "1");
-            sortingOptions.add(getString(R.string.str_Judge) + "2");
-            sortingOptions.add(getString(R.string.str_Judge) + "3");
-            sortingOptions.add(getString(R.string.str_Judge) + "4");
-            sortingOptions.add(getString(R.string.str_Judge) + "5");
-            sortingOptions.add(getString(R.string.str_Judge) + "6");
+            sortingOptions.add(getString(R.string.str_Judge) + " 1");
+            sortingOptions.add(getString(R.string.str_Judge) + " 2");
+            sortingOptions.add(getString(R.string.str_Judge) + " 3");
+            sortingOptions.add(getString(R.string.str_Judge) + " 4");
+            sortingOptions.add(getString(R.string.str_Judge) + " 5");
         }
     }
 
@@ -377,32 +360,5 @@ public class IndexActivity extends AppCompatActivity {
             recreate();
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    void showAlertDialog()
-    {
-        AlertDialog.Builder builder;
-        builder = new AlertDialog.Builder(IndexActivity.this);
-
-        builder.setTitle("Oops..")
-                .setMessage("Ci dispiace molto, ma l'applicazione è in manutenzione.\nÈ stato identificato un problema che impedisce la corretta memorizzazione delle gare.\nPer evitare di perdere i dati dalle gare già salvate, l'applicazione sarà disattivata per qualche giorno.\nPotrai comunque salvare le gare di questi giorni successivamente.\nIl problema verrà risolto al più presto. :(")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialogInterface) {
-                        finish();
-                    }
-                })
-                .show();
     }
 }

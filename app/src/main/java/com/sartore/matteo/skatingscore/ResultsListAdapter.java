@@ -59,21 +59,29 @@ public class ResultsListAdapter extends ArrayAdapter<RankClass>
                         case 0:
                         {
                             placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.best));
+                            placementImgView.setVisibility(View.VISIBLE);
+                            placementTxtView.setVisibility(View.INVISIBLE);
                             break;
                         }
                         case 1:
                         {
                             placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.second));
+                            placementImgView.setVisibility(View.VISIBLE);
+                            placementTxtView.setVisibility(View.INVISIBLE);
                             break;
                         }
                         case 2:
                         {
                             placementImgView.setImageDrawable(getContext().getDrawable(R.drawable.third));
+                            placementImgView.setVisibility(View.VISIBLE);
+                            placementTxtView.setVisibility(View.INVISIBLE);
                             break;
                         }
                         default:
                         {
                             placementTxtView.setText(String.valueOf(position + 1));
+                            placementTxtView.setVisibility(View.VISIBLE);
+                            placementImgView.setVisibility(View.INVISIBLE);
                             break;
                         }
                     }

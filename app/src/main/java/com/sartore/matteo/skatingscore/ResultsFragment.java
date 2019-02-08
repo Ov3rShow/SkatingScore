@@ -28,12 +28,13 @@ public class ResultsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_results, container, false);
-
-        hinttxtView = view.findViewById(R.id.hint_results);
-
+        View view = null;
         try
         {
+            view = inflater.inflate(R.layout.fragment_results, container, false);
+
+            hinttxtView = view.findViewById(R.id.hint_results);
+
             if(IndexActivity.current_competition != null)
             {
                 if(IndexActivity.current_competition.getAthletes().size() > 0)
@@ -85,7 +86,11 @@ public class ResultsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        orderList(IndexActivity.selectedResultsOrder);
+        if(adapter!=null)
+        {
+            orderList(IndexActivity.selectedResultsOrder);
+        }
+
         super.onResume();
     }
 
@@ -96,11 +101,11 @@ public class ResultsFragment extends Fragment {
                 public int compare(RankClass rank1, RankClass rank2) {
                     int retValue = 0;
                     if(rank1.getMajorityDecisions() > rank2.getMajorityDecisions())
-                        retValue = 1;
+                        retValue = -1;
                     else if (rank1.getMajorityDecisions() == rank2.getMajorityDecisions())
                         retValue = 0;
                     else if(rank1.getMajorityDecisions() < rank2.getMajorityDecisions())
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
@@ -114,11 +119,11 @@ public class ResultsFragment extends Fragment {
                     double punteggirank2 = rank2.getPunteggi().getA1() + rank2.getPunteggi().getB1();
 
                     if(punteggirank1 > punteggirank2)
-                        retValue = 1;
+                        retValue = -1;
                     else if (punteggirank1 == punteggirank2)
                         retValue = 0;
                     else if(punteggirank1 < punteggirank2)
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
@@ -132,11 +137,11 @@ public class ResultsFragment extends Fragment {
                     double punteggirank2 = rank2.getPunteggi().getA2() + rank2.getPunteggi().getB2();
 
                     if(punteggirank1 > punteggirank2)
-                        retValue = 1;
+                        retValue = -1;
                     else if (punteggirank1 == punteggirank2)
                         retValue = 0;
                     else if(punteggirank1 < punteggirank2)
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
@@ -150,11 +155,11 @@ public class ResultsFragment extends Fragment {
                     double punteggirank2 = rank2.getPunteggi().getA3() + rank2.getPunteggi().getB3();
 
                     if(punteggirank1 > punteggirank2)
-                        retValue = 1;
+                        retValue = -1;
                     else if (punteggirank1 == punteggirank2)
                         retValue = 0;
                     else if(punteggirank1 < punteggirank2)
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
@@ -168,11 +173,11 @@ public class ResultsFragment extends Fragment {
                     double punteggirank2 = rank2.getPunteggi().getA4() + rank2.getPunteggi().getB4();
 
                     if(punteggirank1 > punteggirank2)
-                        retValue = 1;
+                        retValue = -1;
                     else if (punteggirank1 == punteggirank2)
                         retValue = 0;
                     else if(punteggirank1 < punteggirank2)
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
@@ -186,11 +191,11 @@ public class ResultsFragment extends Fragment {
                     double punteggirank2 = rank2.getPunteggi().getA5() + rank2.getPunteggi().getB5();
 
                     if(punteggirank1 > punteggirank2)
-                        retValue = 1;
+                        retValue = -1;
                     else if (punteggirank1 == punteggirank2)
                         retValue = 0;
                     else if(punteggirank1 < punteggirank2)
-                        retValue = -1;
+                        retValue = 1;
                     return retValue;
                 }
             });
