@@ -40,6 +40,7 @@ public class ResultsListAdapter extends ArrayAdapter<RankClass>
                 TextView infoTxtView = view.findViewById(R.id.resultlist_info);
                 ImageView placementImgView = view.findViewById(R.id.resultlist_PlacementIcon);
                 TextView placementTxtView = view.findViewById(R.id.resultlist_PlacementTextView);
+                TextView majorityDecisionsTxtView = view.findViewById(R.id.resultlist_majorityDecision);
 
 
                 if (nameTxtView != null) {
@@ -50,6 +51,14 @@ public class ResultsListAdapter extends ArrayAdapter<RankClass>
                 if(infoTxtView != null)
                 {
                     infoTxtView.setText(threeStrings.getTitolo().concat(" - ").concat(threeStrings.getSocieta()));
+                }
+
+                if(majorityDecisionsTxtView != null)
+                {
+                    if(threeStrings.getMajorityDecisions() % 1 == 0)
+                        majorityDecisionsTxtView.setText(getContext().getString(R.string.str_VittMagg).concat(" ").concat(String.valueOf((int)threeStrings.getMajorityDecisions())));
+                    else
+                        majorityDecisionsTxtView.setText(getContext().getString(R.string.str_VittMagg).concat(" ").concat(String.valueOf(threeStrings.getMajorityDecisions())));
                 }
 
                 if(placementImgView != null)

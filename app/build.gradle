@@ -14,8 +14,8 @@ android {
         applicationId "com.sartore.matteo.skatingscore"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 12
-        versionName "2.0.0"
+        versionCode 13
+        versionName "2.0.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         signingConfig signingConfigs.config

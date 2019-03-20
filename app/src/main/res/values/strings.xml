@@ -63,6 +63,7 @@
     <string name="str_OopsAnErrorOccurred">Oops! Si è verificato un errore</string>
     <string name="str_insertACompetitor">Aggiungi un concorrente!</string>
     <string name="str_scoresMissing">Punteggi non ancora assegnati</string>
+    <string name="str_VittMagg">Vitt magg.:</string>
 
     <!-- Activity principale-->
     <string name="str_chooseSortingRule">Seleziona l\'ordinamento</string>

@@ -149,44 +149,47 @@ public class AthletesFragment extends Fragment implements View.OnClickListener {
     }
 
     public void orderList(final int orderListMode) {
-        if (orderListMode == 0) {
-            adapter.sort(new Comparator<AthleteClass>() {
-                @Override
-                public int compare(AthleteClass ath1, AthleteClass ath2) {
-                    return ath1.getName().toLowerCase().compareTo(ath2.getName().toLowerCase());
-                }
-            });
-        } else if (orderListMode == 1) {
-            adapter.sort(new Comparator<AthleteClass>() {
-                @Override
-                public int compare(AthleteClass ath1, AthleteClass ath2) {
-                    return ath1.getSociety().toLowerCase().compareTo(ath2.getSociety().toLowerCase());
-                }
-            });
-        } else if (orderListMode == 2) {
-            adapter.sort(new Comparator<AthleteClass>() {
-                @Override
-                public int compare(AthleteClass ath1, AthleteClass ath2) {
-                    return ath1.getTitle().toLowerCase().compareTo(ath2.getTitle().toLowerCase());
-                }
-            });
-        } else if (orderListMode == 3) {
-            adapter.sort(new Comparator<AthleteClass>() {
-                @Override
-                public int compare(AthleteClass ath1, AthleteClass ath2) {
+        if(adapter != null)
+        {
+            if (orderListMode == 0) {
+                adapter.sort(new Comparator<AthleteClass>() {
+                    @Override
+                    public int compare(AthleteClass ath1, AthleteClass ath2) {
+                        return ath1.getName().toLowerCase().compareTo(ath2.getName().toLowerCase());
+                    }
+                });
+            } else if (orderListMode == 1) {
+                adapter.sort(new Comparator<AthleteClass>() {
+                    @Override
+                    public int compare(AthleteClass ath1, AthleteClass ath2) {
+                        return ath1.getSociety().toLowerCase().compareTo(ath2.getSociety().toLowerCase());
+                    }
+                });
+            } else if (orderListMode == 2) {
+                adapter.sort(new Comparator<AthleteClass>() {
+                    @Override
+                    public int compare(AthleteClass ath1, AthleteClass ath2) {
+                        return ath1.getTitle().toLowerCase().compareTo(ath2.getTitle().toLowerCase());
+                    }
+                });
+            } else if (orderListMode == 3) {
+                adapter.sort(new Comparator<AthleteClass>() {
+                    @Override
+                    public int compare(AthleteClass ath1, AthleteClass ath2) {
 
-                    int retValue = 0;
+                        int retValue = 0;
 
-                    if (ath1.getPosition() > ath2.getPosition())
-                        retValue = 1;
-                    else if (ath1.getPosition() == ath2.getPosition())
-                        retValue = 0;
-                    else if (ath1.getPosition() < ath2.getPosition())
-                        retValue = -1;
+                        if (ath1.getPosition() > ath2.getPosition())
+                            retValue = 1;
+                        else if (ath1.getPosition() == ath2.getPosition())
+                            retValue = 0;
+                        else if (ath1.getPosition() < ath2.getPosition())
+                            retValue = -1;
 
-                    return retValue;
-                }
-            });
+                        return retValue;
+                    }
+                });
+            }
         }
     }
 }

@@ -95,110 +95,112 @@ public class ResultsFragment extends Fragment {
     }
 
     public void orderList(final int orderListMode) {
-        if (orderListMode == 0) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
-                    int retValue = 0;
-                    if(rank1.getMajorityDecisions() > rank2.getMajorityDecisions())
-                        retValue = -1;
-                    else if (rank1.getMajorityDecisions() == rank2.getMajorityDecisions())
-                        retValue = 0;
-                    else if(rank1.getMajorityDecisions() < rank2.getMajorityDecisions())
-                        retValue = 1;
-                    return retValue;
-                }
-            });
-        } else if (orderListMode == 1) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
+        if(adapter!=null) {
+            if (orderListMode == 0) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
+                        int retValue = 0;
+                        if(rank1.getMajorityDecisions() > rank2.getMajorityDecisions())
+                            retValue = -1;
+                        else if (rank1.getMajorityDecisions() == rank2.getMajorityDecisions())
+                            retValue = 0;
+                        else if(rank1.getMajorityDecisions() < rank2.getMajorityDecisions())
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            } else if (orderListMode == 1) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
 
-                    int retValue = 0;
-                    double punteggirank1 = rank1.getPunteggi().getA1() + rank1.getPunteggi().getB1();
-                    double punteggirank2 = rank2.getPunteggi().getA1() + rank2.getPunteggi().getB1();
+                        int retValue = 0;
+                        double punteggirank1 = rank1.getPunteggi().getA1() + rank1.getPunteggi().getB1();
+                        double punteggirank2 = rank2.getPunteggi().getA1() + rank2.getPunteggi().getB1();
 
-                    if(punteggirank1 > punteggirank2)
-                        retValue = -1;
-                    else if (punteggirank1 == punteggirank2)
-                        retValue = 0;
-                    else if(punteggirank1 < punteggirank2)
-                        retValue = 1;
-                    return retValue;
-                }
-            });
-        } else if (orderListMode == 2) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
+                        if(punteggirank1 > punteggirank2)
+                            retValue = -1;
+                        else if (punteggirank1 == punteggirank2)
+                            retValue = 0;
+                        else if(punteggirank1 < punteggirank2)
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            } else if (orderListMode == 2) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
 
-                    int retValue = 0;
-                    double punteggirank1 = rank1.getPunteggi().getA2() + rank1.getPunteggi().getB2();
-                    double punteggirank2 = rank2.getPunteggi().getA2() + rank2.getPunteggi().getB2();
+                        int retValue = 0;
+                        double punteggirank1 = rank1.getPunteggi().getA2() + rank1.getPunteggi().getB2();
+                        double punteggirank2 = rank2.getPunteggi().getA2() + rank2.getPunteggi().getB2();
 
-                    if(punteggirank1 > punteggirank2)
-                        retValue = -1;
-                    else if (punteggirank1 == punteggirank2)
-                        retValue = 0;
-                    else if(punteggirank1 < punteggirank2)
-                        retValue = 1;
-                    return retValue;
-                }
-            });
-        } else if (orderListMode == 3) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
+                        if(punteggirank1 > punteggirank2)
+                            retValue = -1;
+                        else if (punteggirank1 == punteggirank2)
+                            retValue = 0;
+                        else if(punteggirank1 < punteggirank2)
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            } else if (orderListMode == 3) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
 
-                    int retValue = 0;
-                    double punteggirank1 = rank1.getPunteggi().getA3() + rank1.getPunteggi().getB3();
-                    double punteggirank2 = rank2.getPunteggi().getA3() + rank2.getPunteggi().getB3();
+                        int retValue = 0;
+                        double punteggirank1 = rank1.getPunteggi().getA3() + rank1.getPunteggi().getB3();
+                        double punteggirank2 = rank2.getPunteggi().getA3() + rank2.getPunteggi().getB3();
 
-                    if(punteggirank1 > punteggirank2)
-                        retValue = -1;
-                    else if (punteggirank1 == punteggirank2)
-                        retValue = 0;
-                    else if(punteggirank1 < punteggirank2)
-                        retValue = 1;
-                    return retValue;
-                }
-            });
-        } else if (orderListMode == 4) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
+                        if(punteggirank1 > punteggirank2)
+                            retValue = -1;
+                        else if (punteggirank1 == punteggirank2)
+                            retValue = 0;
+                        else if(punteggirank1 < punteggirank2)
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            } else if (orderListMode == 4) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
 
-                    int retValue = 0;
-                    double punteggirank1 = rank1.getPunteggi().getA4() + rank1.getPunteggi().getB4();
-                    double punteggirank2 = rank2.getPunteggi().getA4() + rank2.getPunteggi().getB4();
+                        int retValue = 0;
+                        double punteggirank1 = rank1.getPunteggi().getA4() + rank1.getPunteggi().getB4();
+                        double punteggirank2 = rank2.getPunteggi().getA4() + rank2.getPunteggi().getB4();
 
-                    if(punteggirank1 > punteggirank2)
-                        retValue = -1;
-                    else if (punteggirank1 == punteggirank2)
-                        retValue = 0;
-                    else if(punteggirank1 < punteggirank2)
-                        retValue = 1;
-                    return retValue;
-                }
-            });
-        }else if (orderListMode == 5) {
-            adapter.sort(new Comparator<RankClass>() {
-                @Override
-                public int compare(RankClass rank1, RankClass rank2) {
+                        if(punteggirank1 > punteggirank2)
+                            retValue = -1;
+                        else if (punteggirank1 == punteggirank2)
+                            retValue = 0;
+                        else if(punteggirank1 < punteggirank2)
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            }else if (orderListMode == 5) {
+                adapter.sort(new Comparator<RankClass>() {
+                    @Override
+                    public int compare(RankClass rank1, RankClass rank2) {
 
-                    int retValue = 0;
-                    double punteggirank1 = rank1.getPunteggi().getA5() + rank1.getPunteggi().getB5();
-                    double punteggirank2 = rank2.getPunteggi().getA5() + rank2.getPunteggi().getB5();
+                        int retValue = 0;
+                        double punteggirank1 = rank1.getPunteggi().getA5() + rank1.getPunteggi().getB5();
+                        double punteggirank2 = rank2.getPunteggi().getA5() + rank2.getPunteggi().getB5();
 
-                    if(punteggirank1 > punteggirank2)
-                        retValue = -1;
-                    else if (punteggirank1 == punteggirank2)
-                        retValue = 0;
-                    else if(punteggirank1 < punteggirank2)
-                        retValue = 1;
-                    return retValue;
-                }
-            });
+                        if(punteggirank1 > punteggirank2)
+                            retValue = -1;
+                        else if (punteggirank1 == punteggirank2)
+                            retValue = 0;
+                        else if(punteggirank1 < punteggirank2)
+                            retValue = 1;
+                        return retValue;
+                    }
+                });
+            }
         }
     }
 }
